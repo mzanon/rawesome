@@ -15,6 +15,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with rawesome.  If not, see <http://www.gnu.org/licenses/>.
 
+import numpy
+
 import casadi as C
 
 import exportOcp
@@ -329,3 +331,21 @@ class Mhe(Ocp):
         raise Exception("hey, you don't know this is Ocp")
     def minimizeLsqEndTerm(self, obj):
         raise Exception("hey, you don't know this is Ocp")
+
+    def yxIndex(self,name):
+        index = 0
+        for elem in self.yxNames:
+            if name != elem: 
+                index += self.dae[elem].size()
+            else:
+                break
+        return numpy.arange(index,index+self.dae[name].size())
+        
+    def yuIndex(self,name):
+        index = 0
+        for elem in self.yuNames:
+            if name != elem: 
+                index += self.dae[elem].size()
+            else:
+                break
+        return numpy.arange(index,index+self.dae[name].size())

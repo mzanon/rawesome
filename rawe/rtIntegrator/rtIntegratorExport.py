@@ -25,9 +25,9 @@ import rtIntegratorInterface
 
 def makeMakefile(cfiles, cxxfiles):
     return """\
-CC      = gcc
+CC      = icc
 CFLAGS  = -O3 -fPIC -finline-functions -I.
-CXX     = g++
+CXX     = icpc
 CXXFLAGS = -O3 -fPIC -finline-functions -I.
 LDFLAGS = -lm
 
