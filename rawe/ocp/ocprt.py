@@ -567,7 +567,7 @@ class OcpRT(object):
                         else:
                             myStep(ts,ys,style)
                 else:
-                    ys = numpy.array(self._log['u'])[:,when,index]
+                    ys = numpy.array(self._log['u'])[1:,when,index]
                     ts = numpy.arange(len(ys))*self.ocp.ts
                     if style == 'o':
                         plt.plot(ts,ys,style)
